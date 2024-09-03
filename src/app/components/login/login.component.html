@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="body">
+    <h1>Login</h1>
+    <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
+      <div class="form-floating mb-3 mt-3">
+        <input type="text" formControlName="username" class="form-control" placeholder="Ingrese Usuario">
+        <label>Usuario</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" formControlName="password" class="form-control" placeholder="Ingrese Password">
+        <label>Password</label>
+      </div>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="formLogin.invalid">Aceptar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="body">
+      <img class="logo" src="../../../assets/img/add-user.svg" alt="Login">
+      <h1>Registro</h1>
+      <form [formGroup]="formRegistro" (ngSubmit)="registro()">
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" formControlName="username" class="form-control" placeholder="Ingrese Usuario">
+          <label>username</label>
+        </div>
+        <div class="form-floating mb-3 mt-3">
+          <input type="email" formControlName="email" class="form-control" placeholder="Ingrese Usuario">
+          <label>email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <select class="form-select" id="floatingSelect" formControlName="roleId" aria-label="Floating label select example">
+            <option value="1">Admin</option>
+            <option value="2" selected>User</option>
+            <option value="3">view</option>
+          </select>
+          <label for="floatingSelect">Roles</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="password" formControlName="password" class="form-control" placeholder="Ingrese Password">
+          <label>Contraseña</label>
+        </div>
+        <!-- <div class="form-floating mb-3">
+          <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Ingrese Password">
+          <label>Confirma Contraseña</label>
+        </div> -->
+        <div class="d-grid gap-2">
+          <!-- <button type="submit" class="btn btn-primary btn-lg">Aceptar</button> -->
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="formRegistro.invalid">Aceptar</button> 
+        </div>
+
+      </form>
+    </div>
+  </div>

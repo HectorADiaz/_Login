@@ -1,14 +1,15 @@
 <div class="wrapper">
   <div class="body">
+    <img class="logo" src="../../../assets/img/login.svg" alt="Login">
     <h1>Login</h1>
     <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
       <div class="form-floating mb-3 mt-3">
         <input type="text" formControlName="username" class="form-control" placeholder="Ingrese Usuario">
-        <label>Usuario</label>
+        <label>username</label>
       </div>
       <div class="form-floating mb-3">
         <input type="password" formControlName="password" class="form-control" placeholder="Ingrese Password">
-        <label>Password</label>
+        <label>Contraseña</label>
       </div>
       <div class="d-grid gap-2">
         <button type="submit" class="btn btn-primary btn-lg" [disabled]="formLogin.invalid">Aceptar</button>

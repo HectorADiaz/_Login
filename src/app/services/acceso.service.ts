@@ -4,6 +4,7 @@ import { appsettings } from '../settings/settings';
 import { Login } from '../interfaces/Login';
 import { Observable } from 'rxjs/internal/Observable';
 import { ResponseAcceso } from '../interfaces/ResponseAcceso';
+import { User } from '../interfaces/User';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,14 @@ export class AccesoService {
   // constructor(private http: HttpClient) { }
  
   constructor() { }
+
+  
+  register(objeto: User): Observable<ResponseAcceso> {
+    return this.http.post<ResponseAcceso>(`${this.baseUrl}users`,objeto)
+  }
+
+  // http://localhost:3000/api/v1/users
+  // http://localhost:3000/api/v1/login
 
   login(objeto: Login): Observable<ResponseAcceso> {
     return this.http.post<ResponseAcceso>(`${this.baseUrl}login`,objeto)

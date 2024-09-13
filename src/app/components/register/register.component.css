@@ -1,0 +1,17 @@
+.wrapper {
+    width: 550px;
+}
+.form-container {
+    width: 75%;
+}
+
+.is-invalid-field {
+    border-color: red;
+  }
+  .form-container {
+    height: 85%;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}

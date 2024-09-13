@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { appsettings } from '../settings/settings';
 import { Login } from '../interfaces/Login';
 import { Observable } from 'rxjs/internal/Observable';
-import { ResponseAcceso } from '../interfaces/ResponseAcceso';
+import { RegisterResponse, ResponseAcceso } from '../interfaces/ResponseAcceso';
 import { User } from '../interfaces/User';
 
 @Injectable({
@@ -23,8 +23,8 @@ export class AccesoService {
   constructor() { }
 
   
-  register(objeto: User): Observable<ResponseAcceso> {
-    return this.http.post<ResponseAcceso>(`${this.baseUrl}users`,objeto)
+  register(objeto: User): Observable<RegisterResponse> {
+    return this.http.post<RegisterResponse>(`${this.baseUrl}users`,objeto)
   }
 
   // http://localhost:3000/api/v1/users

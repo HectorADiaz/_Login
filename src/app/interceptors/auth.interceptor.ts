@@ -3,7 +3,8 @@ import { HttpInterceptorFn } from '@angular/common/http';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   
 
-  if(req.url.indexOf("Login")>0) return next(req);
+  debugger
+  if (req.url.includes("login")) return next(req);
 
   
   
@@ -16,6 +17,5 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       }
     });
 
-  debugger
   return next(clonedRequest);
 };

@@ -1,7 +1,97 @@
-<!-- <app-navbar></app-navbar> -->
-<h2 class="m-3 text-center">table de usuarios</h2>
-<div class="container">
-    <table class="table">
+<!-- //TODO  Este NAVBAR SE DEBE COLOCAR EN UN COMPONENTE -->
+<app-navbar></app-navbar>
+
+
+<!-- TODO este dashboar se debe agregar a un componente -->
+ <style>
+/* General layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 250px;
+    background-color: #205493;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 10px 0;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #4784c2;
+    border-radius: 4px;
+  }
+  
+  /* Main content styles */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  /* Table styles */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f4f4f4;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+
+ </style>
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Analytics</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </div>
+
+  <!-- Main content with table -->
+  <div class="main-content">
+    <h2 class="m-3 text-center">Table of Users</h2>
+    <div class="container">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -30,4 +120,6 @@
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
 </div>

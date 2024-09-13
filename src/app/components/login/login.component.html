@@ -1,19 +1,44 @@
+<div class="login-container">
+  <!-- Sidebar -->
+   <div class="form-container">
+
+  <div class="info-login">
+    <h2>Hi</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, non?</p>
+  </div>
+
+
+
 <div class="wrapper">
   <div class="body">
-    <img class="logo" src="../../../assets/img/login.svg" alt="Login">
     <h1>Login</h1>
-    <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
-      <div class="form-floating mb-3 mt-3">
-        <input type="text" formControlName="username" class="form-control" placeholder="Ingrese Usuario">
-        <label>username</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="password" formControlName="password" class="form-control" placeholder="Ingrese Password">
-        <label>Contraseña</label>
-      </div>
-      <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary btn-lg" [disabled]="formLogin.invalid">Aceptar</button>
-      </div>
-    </form>
+    <div class="auth-form-body">
+
+        <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
+          <div class="form-floating mb-3 mt-3">
+            <input type="text" [class.is-invalid]="isUsernameInvalid" formControlName="username" class="form-control" placeholder="Ingrese Usuario">
+            <label>username</label>
+          <small *ngIf="isUsernameInvalid" class="text-danger">
+            El username debe tener entre 3 y 20 caracteres.
+          </small>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" [class.is-invalid]="isPasswordInvalid" formControlName="password" class="form-control" placeholder="Ingrese Password">
+          <label>Contraseña</label>
+          <small *ngIf="isPasswordInvalid" class="text-danger">
+            La contraseña debe contener al menos 8 caracteres.
+          </small>
+        </div>
+        <div *ngIf="loginError" class="text-danger m-3" id="errorLogin">
+          Credenciales Incorrectas
+        </div>
+           <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-color btn-lg" [disabled]="formLogin.invalid">Aceptar</button>
+        </div>
+      </form>
   </div>
+
+   </div>
+  </div>
+</div>
 </div>

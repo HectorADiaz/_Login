@@ -1,38 +1,163 @@
+<!-- <div class="login-container">
+ 
+   <div class="form-container">
+
+<div class="info-login">
+  <h2>Hi</h2>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, non?</p>
+</div>
+
 <div class="wrapper">
-    <div class="body">
-      <img class="logo" src="../../../assets/img/add-user.svg" alt="Login">
+    <div class="body p-2">
       <h1>Registro</h1>
-      <form [formGroup]="formRegistro" (ngSubmit)="registro()">
-        <div class="form-floating mb-3 mt-3">
-          <input type="text" formControlName="username" class="form-control" placeholder="Ingrese Usuario">
-          <label>username</label>
+      <form [formGroup]="formRegistro" (ngSubmit)="registro()" class="form-register">
+
+
+          <div class="input-group mb-3">
+            <input type="text" formControlName="username" class="form-control form-control-sm" placeholder="Ingrese Usuario">
+            <span class="input-group-text" id="inputGroup-sizing-default">userename</span>
+ 
+          <small *ngIf="isUsernameInvalid" class="text-danger">
+            El username debe tener entre 3 y 20 caracteres, solo alfanuméricos y guiones bajos.
+          </small>
         </div>
-        <div class="form-floating mb-3 mt-3">
-          <input type="email" formControlName="email" class="form-control" placeholder="Ingrese Usuario">
-          <label>email</label>
+        <div class="input-container">
+
+          <div class="input-group mb-3">
+            <input type="email" [class.is-invalid]="isEmailInvalid" formControlName="email" class="form-control" placeholder="Ingrese Email">
+            <span class="input-group-text" id="inputGroup-sizing-default">email</span>
+          </div>
+          <small *ngIf="isEmailInvalid" class="text-danger">
+            El formato del email no es válido.
+          </small>
         </div>
-        <div class="form-floating mb-3">
-          <select class="form-select" id="floatingSelect" formControlName="roleId" aria-label="Floating label select example">
+        
+        <div class="form-floating m-1">
+          <select class="form-select" id="floatingSelect" formControlName="roleId" aria-label="Seleccionar rol">
             <option value="1">Admin</option>
-            <option value="2" selected>User</option>
-            <option value="3">view</option>
+            <option selected value="2">User</option>
+            <option value="3">View</option>
           </select>
           <label for="floatingSelect">Roles</label>
         </div>
-
-        <div class="form-floating mb-3">
-          <input type="password" formControlName="password" class="form-control" placeholder="Ingrese Password">
-          <label>Contraseña</label>
+  
+        
+          <div class="form-floating m-1">
+            <input type="password" [class.is-invalid]="isPasswordInvalid" formControlName="password" class="form-control" placeholder="Ingrese Password">
+            <label>Contraseña</label>
+          <small *ngIf="isPasswordInvalid" class="text-danger">
+            La contraseña debe contener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.
+          </small>
         </div>
-        <!-- <div class="form-floating mb-3">
-          <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Ingrese Password">
-          <label>Confirma Contraseña</label>
-        </div> -->
+  
+        <div class="form-floating m-1">
+          <input type="password" [class.is-invalid]="isConfirmPasswordInvalid" formControlName="confirmPassword" class="form-control" placeholder="Confirme su contraseña">
+          <label>Confirmar Contraseña</label>
+          <small *ngIf="isConfirmPasswordInvalid" class="text-danger">
+            Las contraseñas no coinciden.
+          </small>
+        </div>
+
+        
+  
         <div class="d-grid gap-2">
-          <!-- <button type="submit" class="btn btn-primary btn-lg">Aceptar</button> -->
-          <button type="submit" class="btn btn-primary btn-lg" [disabled]="formRegistro.invalid">Aceptar</button> 
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="formRegistro.invalid">Aceptar</button>
         </div>
-
       </form>
     </div>
+  </div>  
+ </div>
+</div>
+   -->
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="login-container">
+ 
+    <div class="form-container">
+ 
+ <div class="info-login">
+   <h2>Hi</h2>
+   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, non?</p>
+ </div>
+ 
+ <div class="wrapper">
+     <div class="body p-2">
+       <h1>Registro</h1>
+       <form [formGroup]="formRegistro" (ngSubmit)="registro()" class="form-register">
+ 
+        <div class="input-container  mb-3"> 
+           <div class="input-group">
+             <input type="text" [class.is-invalid]="isUsernameInvalid"  formControlName="username" class="form-control form-control-sm"   >
+             <span class="input-group-text" id="inputGroup-sizing-default">username</span>
+  
+           <small *ngIf="isUsernameInvalid" class="text-danger">
+             El username debe tener entre 3 y 20 caracteres, solo alfanuméricos y guiones bajos.
+           </small>
+         </div>
+        </div>
+
+         <div class="input-container  mb-3">
+           <div class="input-group">
+             <input type="email" [class.is-invalid]="isEmailInvalid" formControlName="email" class="form-control">
+             <span class="input-group-text" id="inputGroup-sizing-default">email</span>
+           </div>
+           <small *ngIf="isEmailInvalid" class="text-danger">
+             El formato del email no es válido.
+           </small>
+         </div>
+
+         <div class="input-container  mb-3">
+
+         <div class="input-group">
+           <select class="form-select" id="floatingSelect" formControlName="roleId">
+            <option value="1">Admin</option>
+             <option value="2">User</option>
+             <option value="3">View</option>
+           </select>
+           <label class="input-group-text" for="inputGroupSelect">Roles</label>
+         </div>
+        </div>
+        
+        <div class="input-container  mb-3">
+           <div class="input-group">
+             <input type="password" [class.is-invalid]="isPasswordInvalid" formControlName="password" class="form-control">
+             <span class="input-group-text" id="inputGroup-sizing-default">contraseña</span>
+            </div>
+            <small *ngIf="isPasswordInvalid" class="text-danger">
+              La contraseña debe contener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.
+            </small>
+        </div>
+
+        <div class="input-container  mb-3">
+         <div class="input-group">
+           <input type="password" [class.is-invalid]="isConfirmPasswordInvalid" formControlName="confirmPassword" class="form-control">
+           <span class="input-group-text" id="inputGroup-sizing-default">Confirme contraseña</span>
+          </div>
+          <small *ngIf="isConfirmPasswordInvalid" class="text-danger">
+          Las contraseñas no coinciden.
+          </small>
+        </div>
+         
+   
+         <div class="d-grid gap-2">
+           <button type="submit" class="btn btn-primary btn-lg" [disabled]="formRegistro.invalid">Aceptar</button>
+         </div>
+         <div class="d-grid gap-2 mt-3">
+          <button type="submit" class="btn btn-outline-secondary "  (click)="volver()" >Regresar</button>
+        </div>
+       </form>
+     </div>
+   </div>  
   </div>
+ </div>
+   

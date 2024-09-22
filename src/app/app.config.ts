@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideToastr({ timeOut: 3000, preventDuplicates: true}),
     provideRouter(routes), 
     provideClientHydration(),
-    importProvidersFrom(HttpClientModule),
+    // importProvidersFrom(HttpClientModule),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideHttpClient(withFetch())
   ]

@@ -1,0 +1,22 @@
+ 
+<app-navbar></app-navbar>
+
+ 
+ 
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a (click)="setView('clients')">Clientes</a></li>
+      <li><a href="#">Analytics</a></li>
+      <li *ngIf="admin"><a href="#">Register</a></li>
+    </ul>
+  </div>
+
+<!-- <app-table-init></app-table-init> -->
+<div class="content-table">
+  <app-clients *ngIf="currentView === 'clients'"></app-clients>
+</div>
+  
+</div>

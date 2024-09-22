@@ -1,0 +1,34 @@
+<div class="search-bar-container">
+
+  <app-search-bar (searchTerm)="onSearch($event)"></app-search-bar>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>cliente</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Nit</th>
+          <th>Dirección</th>
+          <th>IsActive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of filteredClients">
+          <td>{{ client.clientName }}</td>
+          <td>{{ client.firstName }}</td>
+          <td>{{ client.lastName }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.phone }}</td>
+          <td>{{ client.nit }}</td>
+          <td>{{ client.address }}</td>
+          <td>{{ client.isActive ? 'Yes' : 'No' }}</td>
+          <td><a type="button">edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- //TODO preguntar a chino si las tablas se cargan con un lazyload? (paginación) -->

@@ -17,7 +17,7 @@
 import { Routes } from '@angular/router';
 // Components
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { authGuard } from './interceptors/auth.guard';
 

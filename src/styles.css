@@ -72,3 +72,14 @@ html, body{
 .form-register{
     padding: 0.5rem;
 }
+
+.table-responsive{
+    padding: 1rem;
+}
+
+.search-bar-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+}

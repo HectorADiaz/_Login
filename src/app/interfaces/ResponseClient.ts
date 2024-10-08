@@ -7,7 +7,8 @@ export interface Client {
   phone: string,
   nit: string,
   address: string,
-  isActive: boolean
+  isActive: boolean,
+  createdAt: Date,
 }
   
 export interface ClientResponse {
@@ -15,4 +16,10 @@ export interface ClientResponse {
   status: number;
   message: string;
   data: Client[];
+}
+
+export interface DeactivateClientResponse {
+  ok: boolean;
+  status: number;
+  message: string;
 }

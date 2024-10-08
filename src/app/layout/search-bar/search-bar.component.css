@@ -1,7 +1,116 @@
-.search-bar{
-    width: 70%;
+.container-search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 3rem;
 }
 
-.search-bar input{
-    width: 450px;
+.search-bar {
+  width: 50%;
+}
+
+.search-bar input {
+  width: 450px; /* Ajusta el ancho del input */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.icon-button img {
+  width: 100%;
+  height: auto;
+}
+
+.icon-small {
+  width: 55px; /* Cambia este valor para ajustar el tamaño */
+  height: 30px; /* Cambia este valor para ajustar el tamaño */
+  /* vertical-align: middle; Alinea el ícono con el texto */
+}
+.dropdown-menu{
+  cursor: default;
+}
+
+
+.dropdown-item-with-icon {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.dropdown-item-with-icon svg {
+  margin: 0 6px; /* Espacio entre el icono y el texto */
+  width: 24px;       /* Tamaño del ícono */
+  height: 24px;      /* Tamaño del ícono */
+}
+
+.dropdown-item-with-icon a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btn-margin{
+  border: 1px solid #dee2e6; /* Borde de 1px, sólido y gris claro */
+}
+
+
+
+.btn.dropdown-toggle:focus, 
+.btn.dropdown-toggle:active, 
+.btn.dropdown-toggle.show {
+  outline: none; /* Elimina el borde exterior */
+  box-shadow: none; /* Elimina el sombreado de Bootstrap */
+  border-color: transparent; /* Elimina cualquier borde visible */
+}
+
+/* Cambia el color del botón al hacer hover */
+.dropdown-toggle:hover {
+  background-color: #e3e6ed; /* Cambia el color del botón cuando el cursor esté encima */
+}
+
+.btn-add:hover {
+  background: #e3e6ed;
+}
+
+.btn-calendar:hover {
+  background: #e3e6ed;
+}
+
+
+.title-search-bar{
+  padding: 0.5rem 3rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.dp-hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
 }

@@ -15,7 +15,7 @@
           "options": {
             "outputPath": "dist/front-login",
             "index": "src/index.html",
-            "main": "src/main.ts",         
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -28,9 +28,11 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-toastr/toastr.css"
-
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -96,6 +98,6 @@
     }
   },
   "cli": {
-    "analytics": "af69ba2b-bd3e-4f1e-908c-e79e934e4fe8"
+    "analytics": "c4991b18-61e5-468a-a941-90246695f2af"
   }
 }

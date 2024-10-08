@@ -1,22 +1,21 @@
- 
 <app-navbar></app-navbar>
 
- 
- 
 <div class="dashboard-container">
   <!-- Sidebar -->
   <div class="sidebar">
     <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a (click)="setView('clients')">Clientes</a></li>
-      <li><a href="#">Analytics</a></li>
-      <li *ngIf="admin"><a href="#">Register</a></li>
+      <li class="li-element"><a>Dashboard</a></li>
+      <!-- <li class="li-element"><a (click)="setView('clients')">Clientes</a></li>  //TODO  agregar Validaciones para que solo se agreguen administradores-->
+      <li class="li-element"><a (click)="setView('clients')">Clientes</a></li>
+      <li class="li-element"><a (click)="setView('provider')">Proveedores</a></li>
+      <li class="li-element"><a>Analytics</a></li>
+      <li class="li-element" ><a>Register</a></li>
     </ul>
   </div>
 
-<!-- <app-table-init></app-table-init> -->
-<div class="content-table">
-  <app-clients *ngIf="currentView === 'clients'"></app-clients>
-</div>
-  
+  <!-- <app-table-init></app-table-init> -->
+  <div class="content-table">
+    <app-clients *ngIf="currentView === 'clients'"></app-clients>
+    <app-provider *ngIf="currentView === 'provider'"></app-provider>
+  </div>
 </div>

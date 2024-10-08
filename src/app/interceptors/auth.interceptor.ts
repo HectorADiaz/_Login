@@ -3,7 +3,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   
 
-  debugger
+  // debugger
   if (req.url.includes("login")) return next(req);
 
   

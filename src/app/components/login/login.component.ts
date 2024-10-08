@@ -67,9 +67,9 @@ export class LoginComponent {
     });    
   }
   
-  private showInvalidCredentialsAlert(msj: string) {
-    alert(msj);
-  }
+  // private showInvalidCredentialsAlert(msj: string) {
+  //   alert(msj);
+  // }
   private handleLoginError(error: any) {
       if (error.status === 401) {
         this.loginError = true;

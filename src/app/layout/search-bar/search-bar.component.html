@@ -1,8 +1,92 @@
-<div class="search-bar">
-    <input
-    type="text"
-    placeholder="Search..."
-    (input)="onSearch($event)"
-    class="form-control"
-    />
+<div class="title-search-bar">
+  <h1>
+    {{NameComponent}}
+  </h1>
 </div>
+
+<div class="container-search-bar">
+  <div class="dropdown">
+    <a class="btn btn-margin dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Exportar
+    </a>
+  
+    <ul class="dropdown-menu">
+
+
+      <li class="dropdown-item-with-icon">
+        <a class="dropdown-item" style="padding: 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" width="96px" height="96px">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #fff;
+                }
+          
+                .cls-2 {
+                  fill: #31c447;
+                }
+          
+                .cls-3 {
+                  fill: url(#_Безымянный_градиент_10);
+                }
+              </style>
+              <linearGradient id="_Безымянный_градиент_10" data-name="Безымянный градиент 10" x1="6" y1="24" x2="27" y2="24" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#21ad64"/>
+                <stop offset="1" stop-color="#088242"/>
+              </linearGradient>
+            </defs>
+            <path class="cls-2" d="m41,10h-16v28h16c.55,0,1-.45,1-1V11c0-.55-.45-1-1-1Z"/>
+            <path class="cls-1" d="m32,15h7v3h-7v-3Zm0,10h7v3h-7v-3Zm0,5h7v3h-7v-3Zm0-10h7v3h-7v-3Zm-7-5h5v3h-5v-3Zm0,10h5v3h-5v-3Zm0,5h5v3h-5v-3Zm0-10h5v3h-5v-3Z"/>
+            <path class="cls-3" d="m27,42l-21-4V10l21-4v36Z"/>
+            <path class="cls-1" d="m19.13,31l-2.41-4.56c-.09-.17-.19-.48-.28-.94h-.04c-.05.22-.15.54-.32.98l-2.42,4.52h-3.76l4.46-7-4.08-7h3.84l2,4.2c.16.33.3.73.42,1.18h.04c.08-.27.22-.68.44-1.22l2.23-4.16h3.51l-4.2,6.94,4.32,7.06h-3.74Z"/>
+          </svg>
+          Excel (.xlsx)</a>
+      </li>
+
+
+    </ul>
+  </div>
+  
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Buscar..."
+      (input)="onSearch($event)"
+      class="form-control"
+    />
+  </div>
+  <div class=" btn btn-margin btn-calendar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+      <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+    </svg>
+    Del AL
+  </div>
+  
+
+  <div class="add-icon" *ngIf="isActiveAdd">
+    <!-- <button type="button" class="icon-button" (click)="action()">
+      <img src="../../../assets/img/add-icon.svg" alt="" /> -->
+    <!-- </button> -->
+
+    <button type="button" class="btn btn-margin btn-add" (click)="action()">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fas"
+        data-icon="plus"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        data-fa-i2svg=""
+        class="icon-small"
+      >
+        <path
+          fill="currentColor"
+          d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+        ></path>
+      </svg>
+      <!-- {{ textButton }} -->
+    </button>
+  </div>
+</div>
+

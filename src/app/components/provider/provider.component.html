@@ -1,11 +1,155 @@
-<app-search-bar
+<!-- <app-search-bar
   (searchTerm)="onSearch($event)"
   [isActiveAdd]="true"
   [textButton]="textButton"
   [action]="openAddClientModal.bind(this)"
   [NameComponent]="NameComponent"
-  
 >
 </app-search-bar>
 
- 
+
+
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre Empresa</th>
+        <th>Nombre Comercial</th>
+        <th>Dirección Fiscal</th>
+        <th>Nit</th>
+        <th>Telefono Empresa</th>
+        <th>Email</th>
+        <th>Supervisor</th>
+        <th>Mobil Supervisor</th>
+        <th>Banco</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr *ngFor="let pr of provider">
+        <td>{{ pr.businessName }}</td>
+        <td>{{ pr.commercialName }}</td>
+        <td>{{ pr.fiscalAddress }}</td>
+        <td>{{ pr.nit }}</td>
+        <td>{{ pr.phone }}</td>
+        <td>{{ pr.email }}</td>
+        <td>{{ pr.managerName }}</td>
+        <td>{{ pr.managerPhone }}</td>
+        <td style="cursor: pointer;">moreInfo</td>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  -->
+
+
+
+
+
+
+
+
+  <app-search-bar
+  (searchTerm)="onSearch($event)"
+  [isActiveAdd]="true"
+  [textButton]="textButton"
+  [action]="openAddProviderModal.bind(this)"
+  [NameComponent]="NameComponent"
+></app-search-bar>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre Empresa</th>
+        <th>Nombre Comercial</th>
+        <th>Dirección Fiscal</th>
+        <th>Nit</th>
+        <th>Telefono Empresa</th>
+        <th>Email</th>
+        <th>Supervisor</th>
+        <th>Mobil Supervisor</th>
+        <th>Banco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let pr of provider">
+        <!-- Main provider row -->
+        <tr>
+          <td>{{ pr.businessName }}</td>
+          <td>{{ pr.commercialName }}</td>
+          <td>{{ pr.fiscalAddress }}</td>
+          <td>{{ pr.nit }}</td>
+          <td>{{ pr.phone }}</td>
+          <td>{{ pr.email }}</td>
+          <td>{{ pr.managerName }}</td>
+          <td>{{ pr.managerPhone }}</td>
+          <td style="cursor: pointer;" (click)="toggleBankInfo(pr.providersId)">
+            {{ expandedProvider === pr.providersId ? 'Ocultar Info' : 'Más Info' }}
+          </td>
+        </tr>
+
+        <!-- Subtable row for bank information, displayed conditionally -->
+        <tr *ngIf="expandedProvider === pr.providersId">
+          <td colspan="9">
+            <div *ngIf="pr.EntityAccounts?.length; else noAccounts">
+              <!-- Subtable to display bank account details -->
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Numero de cuenta</th>
+                    <th>Nombre de la cuenta</th>
+                    <th>Banco</th>
+                    <th>Tipo de cuenta</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let entityAccount of pr.EntityAccounts; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{  entityAccount.BankAccount.accountNumber }}</td>
+                    <td>{{ entityAccount.BankAccount.accountName }}</td>
+                    <td>{{ entityAccount.BankAccount.Bank.bankName}}</td>
+                    <td>{{ entityAccount.BankAccount.AccountType.typeName }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ng-template #noAccounts>
+              No bank accounts available.
+            </ng-template>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+
+<app-modal-data
+[isVisible]="isModalVisible"
+[title]="modalTitle"
+(close)="closeModal()"
+[modalButtons]="modalButtons"
+>
+<form [formGroup]="formProvider">
+  <div class="inputContainer">
+    <label for="businessName">Nombre Empresa</label>
+    <input
+    formControlName="businessName"
+    id="businessName"
+    class="form-control form-control-sm" 
+    type="text"
+    placeholder="Nombre Empresa"
+    form
+    />
+  </div>
+
+</form>
+
+</app-modal-data>

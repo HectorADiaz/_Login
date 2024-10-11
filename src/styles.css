@@ -117,3 +117,11 @@ body {
   height: 24px;
 }
 
+
+/* Rules for table */
+.btn-edit{
+  cursor: pointer;
+}
+.btn-edit-container{
+  padding: 0 1.2rem;
+}

@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormArray, FormControl } from '@angular/forms';
+import { BankService } from '../../services/bank.service';
+import { Bank } from '../../interfaces/Bank';
+import { AccountType } from '../../interfaces/AccountType';
 
 import {
   FormBuilder,
@@ -24,6 +27,8 @@ import { ModalDataComponent } from "../../layout/modal-data/modal-data.component
 })
 export class ProviderComponent {
   private ProviderService = inject(ProviderService);
+  private BankService = inject(BankService);
+  private AccountTypeService = inject(BankService);
   private router = inject(Router);
   private formBuild = inject(FormBuilder);
   expandedProvider: number | null = null; // Currently expanded provider
@@ -42,24 +47,44 @@ export class ProviderComponent {
       this.createBankAccountGroup(),
     ]),
   });
-  
+  initializeForm() {  
+
+
+  }
   // Método para crear un grupo de cuentas bancarias
   createBankAccountGroup(): FormGroup {
     return this.formBuild.group({
+      //this.formGroup.controls['bankName'].setValue(this.bank[0]?.bankName || '');
+      bankId: ['1'],
       bankName: [''],
       accountNumber: [''],
       accountType: [''],
       accountName: [''],
+      accountTypeId: ['1'],
+      typeName: [''],
       currency: [''],
+      
+      
     });
   }
+
+  // accountTypeId: number;
+  // typeName: string;
+
+
+
+
+
   provider: Provider[] = [];
-  BankAccount:BankAccount[]=[];
+  bank: Bank[] = [];
+  accountType:AccountType[]=[];
   NameComponent='Proveedores'
   textButton = 'Nuevo proveedor';
 
   ngOnInit(): void {
     this.loadProviders();
+
+   
   }
   constructor(private toastr: ToastrService) {}
 
@@ -96,6 +121,8 @@ export class ProviderComponent {
     this.isModalVisible = true;
     this.isEditing = false;
     this.modalTitle= 'Nuevo Proveedor';
+    this.listBank();
+    this.listAccountType();
     this.modalButtons = [
       {
         label: 'Guardar',
@@ -127,6 +154,31 @@ addBankAccount(): void {
   if (bankAccounts) {
     bankAccounts.push(this.createBankAccountGroup());
   }
+}
+
+listBank(): void {
+  this.BankService.getBank().subscribe({
+    next: (response) => {
+      this.bank = response.data;
+      console.log('Listar Bancos', this.bank);
+      this.initializeForm();
+    },
+    error: (error) => {
+      console.error('Error al listar bancos', error);
+    }
+  });
+}
+
+listAccountType(): void {
+  this.BankService.getAccountType().subscribe({
+    next: (response) => {
+      this.accountType = response.data;
+      console.log('Listar tipo de cuentas', this.accountType);
+    },
+    error: (error) => {
+      console.error('Error al listar tipo de cuentas', error);
+    }
+  });
 }
 
 // Método para eliminar una cuenta bancaria

@@ -275,28 +275,23 @@
         />
       </div>
   
-      <div class="inputContainer">
-        <label for="bankName">Banco</label>
-        <input
-          formControlName="bankName"
-          id="bankName"
-          class="form-control form-control-sm"
-          type="text"
-          placeholder="Banco"
-        />
+ 
+      
+      
+      <label for="bankName">Banco</label>
+      <div class="input-group inputContainer">
+        <select class="form-select" id="bankName" formControlName="bankName">
+          <option *ngFor="let prs of bank; let i = index" value="i">{{ prs.bankName }}</option>
+        </select>
       </div>
-  
-      <div class="inputContainer">
-        <label for="accountType">Tipo de cuenta</label>
-        <input
-          formControlName="accountType"
-          id="accountType"
-          class="form-control form-control-sm"
-          type="text"
-          placeholder="Tipo de cuenta"
-        />
+      
+      <label for="accountType">Tipo de cuenta</label>
+      <div class="input-group inputContainer">
+        <select class="form-select" id="accountType" formControlName="accountType">
+          <option *ngFor="let prsa of accountType; let i = index" value="i">{{ prsa.typeName }}</option>
+        </select>
       </div>
-  
+      
       <button type="button" (click)="removeBankAccount(i)">Eliminar Banco</button>
       <button type="button" (click)="addBankAccount()">Agregar Otro Banco</button>
     </div>
